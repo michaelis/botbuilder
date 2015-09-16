@@ -253,6 +253,7 @@
 				TargetAttributes = {
 					7C40A93D1BA6CC8100BFBB22 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = C5M6A2YHKX;
 					};
 					7C40A9591BA6CC8200BFBB22 = {
 						CreatedOnToolsVersion = 6.4;
@@ -475,6 +476,7 @@
 			baseConfigurationReference = DBEE6D56A48B95EA06587CDA /* Pods-CodebitsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CodebitsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -486,6 +488,7 @@
 			baseConfigurationReference = EA3D62E623DDE0537FD2436B /* Pods-CodebitsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CodebitsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
