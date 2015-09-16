@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		354290E7A0212569BC0FF190 /* libPods-CodebitsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E012F2AF7BA838F20E06480A /* libPods-CodebitsApp.a */; };
 		7C40A9441BA6CC8200BFBB22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A9431BA6CC8200BFBB22 /* main.m */; };
 		7C40A9471BA6CC8200BFBB22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A9461BA6CC8200BFBB22 /* AppDelegate.m */; };
 		7C40A94A1BA6CC8200BFBB22 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A9491BA6CC8200BFBB22 /* FirstViewController.m */; };
@@ -15,6 +16,12 @@
 		7C40A9521BA6CC8200BFBB22 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C40A9511BA6CC8200BFBB22 /* Images.xcassets */; };
 		7C40A9551BA6CC8200BFBB22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C40A9531BA6CC8200BFBB22 /* LaunchScreen.xib */; };
 		7C40A9611BA6CC8200BFBB22 /* CodebitsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A9601BA6CC8200BFBB22 /* CodebitsAppTests.m */; };
+		7C40A96C1BA6CD6E00BFBB22 /* BotBuilderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A96B1BA6CD6E00BFBB22 /* BotBuilderTableViewController.m */; };
+		7C40A9701BA6D6C300BFBB22 /* UsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A96F1BA6D6C300BFBB22 /* UsersTableViewController.m */; };
+		7C40A9731BA6EBA600BFBB22 /* BotPartsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A9721BA6EBA600BFBB22 /* BotPartsCollectionViewController.m */; };
+		7C40A9761BA7124800BFBB22 /* CB_API.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A9751BA7124800BFBB22 /* CB_API.m */; };
+		7C40A97A1BA81C5D00BFBB22 /* CB_BotPartsCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40A9791BA81C5D00BFBB22 /* CB_BotPartsCatalog.m */; };
+		7C680A381BA874A30067B500 /* CB_Bot.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C680A371BA874A30067B500 /* CB_Bot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +50,21 @@
 		7C40A95A1BA6CC8200BFBB22 /* CodebitsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodebitsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C40A95F1BA6CC8200BFBB22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C40A9601BA6CC8200BFBB22 /* CodebitsAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodebitsAppTests.m; sourceTree = "<group>"; };
+		7C40A96A1BA6CD6E00BFBB22 /* BotBuilderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotBuilderTableViewController.h; sourceTree = "<group>"; };
+		7C40A96B1BA6CD6E00BFBB22 /* BotBuilderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BotBuilderTableViewController.m; sourceTree = "<group>"; };
+		7C40A96E1BA6D6C300BFBB22 /* UsersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersTableViewController.h; sourceTree = "<group>"; };
+		7C40A96F1BA6D6C300BFBB22 /* UsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersTableViewController.m; sourceTree = "<group>"; };
+		7C40A9711BA6EBA600BFBB22 /* BotPartsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotPartsCollectionViewController.h; sourceTree = "<group>"; };
+		7C40A9721BA6EBA600BFBB22 /* BotPartsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BotPartsCollectionViewController.m; sourceTree = "<group>"; };
+		7C40A9741BA7124800BFBB22 /* CB_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CB_API.h; sourceTree = "<group>"; };
+		7C40A9751BA7124800BFBB22 /* CB_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CB_API.m; sourceTree = "<group>"; };
+		7C40A9781BA81C5D00BFBB22 /* CB_BotPartsCatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CB_BotPartsCatalog.h; sourceTree = "<group>"; };
+		7C40A9791BA81C5D00BFBB22 /* CB_BotPartsCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CB_BotPartsCatalog.m; sourceTree = "<group>"; };
+		7C680A361BA874A30067B500 /* CB_Bot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CB_Bot.h; sourceTree = "<group>"; };
+		7C680A371BA874A30067B500 /* CB_Bot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CB_Bot.m; sourceTree = "<group>"; };
+		DBEE6D56A48B95EA06587CDA /* Pods-CodebitsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodebitsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodebitsApp/Pods-CodebitsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E012F2AF7BA838F20E06480A /* libPods-CodebitsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CodebitsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA3D62E623DDE0537FD2436B /* Pods-CodebitsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodebitsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodebitsApp/Pods-CodebitsApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				354290E7A0212569BC0FF190 /* libPods-CodebitsApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +86,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A2BA20BD6C205589B98918B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E012F2AF7BA838F20E06480A /* libPods-CodebitsApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7C40A9351BA6CC8100BFBB22 = {
 			isa = PBXGroup;
 			children = (
 				7C40A9401BA6CC8100BFBB22 /* CodebitsApp */,
 				7C40A95D1BA6CC8200BFBB22 /* CodebitsAppTests */,
 				7C40A93F1BA6CC8100BFBB22 /* Products */,
+				A206D16157E6A93B9905B59A /* Pods */,
+				2A2BA20BD6C205589B98918B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +127,9 @@
 				7C40A9511BA6CC8200BFBB22 /* Images.xcassets */,
 				7C40A9531BA6CC8200BFBB22 /* LaunchScreen.xib */,
 				7C40A9411BA6CC8100BFBB22 /* Supporting Files */,
+				7C40A96D1BA6CD7C00BFBB22 /* ViewControllers */,
+				7C40A9771BA7125000BFBB22 /* Server */,
+				7C40A97B1BA81C6400BFBB22 /* Model */,
 			);
 			path = CodebitsApp;
 			sourceTree = "<group>";
@@ -124,6 +160,48 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7C40A96D1BA6CD7C00BFBB22 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C40A96A1BA6CD6E00BFBB22 /* BotBuilderTableViewController.h */,
+				7C40A96B1BA6CD6E00BFBB22 /* BotBuilderTableViewController.m */,
+				7C40A96E1BA6D6C300BFBB22 /* UsersTableViewController.h */,
+				7C40A96F1BA6D6C300BFBB22 /* UsersTableViewController.m */,
+				7C40A9711BA6EBA600BFBB22 /* BotPartsCollectionViewController.h */,
+				7C40A9721BA6EBA600BFBB22 /* BotPartsCollectionViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7C40A9771BA7125000BFBB22 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				7C40A9741BA7124800BFBB22 /* CB_API.h */,
+				7C40A9751BA7124800BFBB22 /* CB_API.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		7C40A97B1BA81C6400BFBB22 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C40A9781BA81C5D00BFBB22 /* CB_BotPartsCatalog.h */,
+				7C40A9791BA81C5D00BFBB22 /* CB_BotPartsCatalog.m */,
+				7C680A361BA874A30067B500 /* CB_Bot.h */,
+				7C680A371BA874A30067B500 /* CB_Bot.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A206D16157E6A93B9905B59A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBEE6D56A48B95EA06587CDA /* Pods-CodebitsApp.debug.xcconfig */,
+				EA3D62E623DDE0537FD2436B /* Pods-CodebitsApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +209,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C40A9641BA6CC8200BFBB22 /* Build configuration list for PBXNativeTarget "CodebitsApp" */;
 			buildPhases = (
+				2E7FA849FDF13F206920794B /* Check Pods Manifest.lock */,
 				7C40A93A1BA6CC8100BFBB22 /* Sources */,
 				7C40A93B1BA6CC8100BFBB22 /* Frameworks */,
 				7C40A93C1BA6CC8100BFBB22 /* Resources */,
+				6E5293D19C190BD606747D2B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,15 +299,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E7FA849FDF13F206920794B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6E5293D19C190BD606747D2B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodebitsApp/Pods-CodebitsApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7C40A93A1BA6CC8100BFBB22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C680A381BA874A30067B500 /* CB_Bot.m in Sources */,
+				7C40A97A1BA81C5D00BFBB22 /* CB_BotPartsCatalog.m in Sources */,
+				7C40A96C1BA6CD6E00BFBB22 /* BotBuilderTableViewController.m in Sources */,
 				7C40A94D1BA6CC8200BFBB22 /* SecondViewController.m in Sources */,
 				7C40A9471BA6CC8200BFBB22 /* AppDelegate.m in Sources */,
+				7C40A9731BA6EBA600BFBB22 /* BotPartsCollectionViewController.m in Sources */,
 				7C40A94A1BA6CC8200BFBB22 /* FirstViewController.m in Sources */,
+				7C40A9701BA6D6C300BFBB22 /* UsersTableViewController.m in Sources */,
 				7C40A9441BA6CC8200BFBB22 /* main.m in Sources */,
+				7C40A9761BA7124800BFBB22 /* CB_API.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +472,7 @@
 		};
 		7C40A9651BA6CC8200BFBB22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBEE6D56A48B95EA06587CDA /* Pods-CodebitsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodebitsApp/Info.plist;
@@ -363,6 +483,7 @@
 		};
 		7C40A9661BA6CC8200BFBB22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA3D62E623DDE0537FD2436B /* Pods-CodebitsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodebitsApp/Info.plist;
@@ -424,6 +545,7 @@
 				7C40A9661BA6CC8200BFBB22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C40A9671BA6CC8200BFBB22 /* Build configuration list for PBXNativeTarget "CodebitsAppTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +554,7 @@
 				7C40A9691BA6CC8200BFBB22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
