@@ -13,10 +13,20 @@
 @interface CB_API : NSObject
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
+@property (strong, nonatomic) NSString *userToken;
 
 + (CB_API *)sharedInstance;
 
 + (void)botParts:(void (^)(CB_BotPartsCatalog *parts))sucess
          failure:(void (^)(NSString *error))failure;
++ (void)getToken:(NSString *)email
+        password:(NSString *)password//DM9HvQL4
+         success:(void (^)(NSString *token))success
+         failure:(void (^)(NSError *error))failure;
++ (void)users:(void (^)(NSArray *users))sucess
+      failure:(void (^)(NSString *error))failure;
++ (void)user:(NSString *)userId
+     success:(void (^)(NSMutableDictionary *user))sucess
+     failure:(void (^)(NSString *error))failure;
 
 @end

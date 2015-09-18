@@ -1,24 +1,19 @@
 //
-//  UsersTableViewController.m
+//  QuoteTableViewController.m
 //  CodebitsApp
 //
-//  Created by Miguel Gomes on 14/09/15.
+//  Created by Miguel Gomes on 18/09/15.
 //  Copyright (c) 2015 Miguel Gomes. All rights reserved.
 //
 
-#import "UsersTableViewController.h"
-#import "CB_API.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import "UserDetailTableViewController.h"
-#import "CB_Users.h"
+#import "QuoteTableViewController.h"
+#import "CB_Bot.h"
 
-@interface UsersTableViewController ()
+@interface QuoteTableViewController ()
 
 @end
 
-static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
-
-@implementation UsersTableViewController
+@implementation QuoteTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,43 +24,16 @@ static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.title = NSLocalizedString(@"Utilizadores", nil);
+    //if([[CB_Bot sharedInstance].quote ]
     
-#warning TODO show login popup instead of hardcode user data
-    NSString *email = @"miguel.d.gomes@gmail.com";
-    NSString *password = @"DM9HvQL4";
+    self.title = NSLocalizedString(@"Frase", nil);
     
-    if([[CB_Users sharedInstance].users count] == 0)
-    {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        [CB_API getToken:email password:password
-                 success:^(NSString *token) {
-                     
-                     [CB_API users:^(NSArray *users) {
-                         [CB_Users sharedInstance].users = [NSMutableArray arrayWithArray:users];
-                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                         [self.tableView reloadData];
-                     } failure:^(NSString *error) {
-                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                     }];
-                     
-                 } failure:^(NSError *error) {
-                 
-                 }];
-    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UserDetailTableViewController *destination = segue.destinationViewController;
-    
-    destination.user = [CB_Users sharedInstance].users[[sender tag]];
-    destination.userIndex = [sender tag];
 }
 
 #pragma mark - Table view data source
@@ -77,28 +45,29 @@ static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[CB_Users sharedInstance].users count];
+    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuoteCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSString *md5mail = [[CB_Users sharedInstance].users[indexPath.row] objectForKey:@"md5mail"];
+    UITextField *quoteField = (UITextField*)[cell viewWithTag:100];
     
-    NSString *imageUrlStr = [NSString stringWithFormat:@"%@/%@.jpg", AVATAR_IMAGE_URL,md5mail];
+    quoteField.text = [CB_Bot sharedInstance].quote;
     
-    // Here we use the new provided sd_setImageWithURL: method to load the web image
-    //[botPartView sd_setImageWithURL:[NSURL URLWithString:imageUrlStr] placeholderImage:nil];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStr] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    cell.textLabel.text = [[CB_Users sharedInstance].users[indexPath.row] objectForKey:@"name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"twitter: @%@",[[CB_Users sharedInstance].users[indexPath.row] objectForKey:@"twitter"] ];
-    cell.tag = indexPath.row;
+    [quoteField addTarget:self
+                  action:@selector(textFieldDidChange:)
+        forControlEvents:UIControlEventEditingChanged];
     
     return cell;
 }
 
+- (void)textFieldDidChange:(id)sender {
+    
+    [CB_Bot sharedInstance].quote = [(UITextField*)sender text];
+}
 
 /*
 // Override to support conditional editing of the table view.

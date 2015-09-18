@@ -9,6 +9,9 @@
 #import "CB_API.h"
 
 static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
+static NSString *kCB_Token = @"token";
+
+//https://services.sapo.pt/Codebits/gettoken?user=miguel.d.gomes@gmail.com&password=DM9HvQL4
 
 @implementation CB_API
 
@@ -24,7 +27,6 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         
         [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-        //[manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [VVSessionManager sharedManager].login.userToken] forHTTPHeaderField:@"Authorization"];
         
         sharedInstance.manager = manager;
     });
@@ -52,6 +54,73 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          }];
+}
+
+#pragma mark - Users
+
++ (void)getToken:(NSString *)email
+        password:(NSString *)password//DM9HvQL4
+          success:(void (^)(NSString *token))success
+         failure:(void (^)(NSError *error))failure
+{
+    NSString *url = [API_URL stringByAppendingString:[NSString stringWithFormat:@"gettoken?user=%@&password=%@",email,password]];
+    
+    AFHTTPRequestOperationManager *manager = [CB_API sharedInstance].manager;
+    
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject){
+             
+             NSString *token = [responseObject objectForKey:kCB_Token];
+             [CB_API sharedInstance].userToken = token;
+             NSLog(@"Got Token: %@", token);
+             if(success) return success(token);
+             
+         }
+     
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             
+         }];
+}
+
+
++ (void)users:(void (^)(NSArray *users))sucess
+      failure:(void (^)(NSString *error))failure
+{
+    NSString *url = [API_URL stringByAppendingString:[NSString stringWithFormat:@"users/?token=%@",[CB_API sharedInstance].userToken]];
+    
+    AFHTTPRequestOperationManager *manager = [CB_API sharedInstance].manager;
+    
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject){
+             if(sucess) return sucess(responseObject);
+         }
+     
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             
+         }];
+
+}
+
++ (void)user:(NSString *)userId
+     success:(void (^)(NSMutableDictionary *user))sucess
+     failure:(void (^)(NSString *error))failure
+{
+    NSString *url = [API_URL stringByAppendingString:[NSString stringWithFormat:@"user/%@?token=%@",userId,[CB_API sharedInstance].userToken]];
+    
+    AFHTTPRequestOperationManager *manager = [CB_API sharedInstance].manager;
+    
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject){
+             if(sucess) return sucess(responseObject);
+         }
+     
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             
+         }];
+    
 }
 
 //+ (void)makeBot:(NSArray *)partIds

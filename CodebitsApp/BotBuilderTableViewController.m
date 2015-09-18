@@ -39,19 +39,17 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
     self.title = NSLocalizedString(@"Bot Builder", nil);
     menuElements = [self setMenuElements];
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
     [CB_API botParts:^(CB_BotPartsCatalog *parts) {
         
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         self.botParts = parts;
         
     } failure:^(NSString *error) {
-        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
     
-    UIImage *botImage = [self getBotImageView];
-    if(botImage)
-    {
-        botImageView.image = botImage;
-    }
     needsRefresh = false;
 }
 
@@ -61,13 +59,10 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
     if(needsRefresh)
     {
         // Update Bot Image
-        UIImage *botImage = [self getBotImageView];
-        if(botImage)
-        {
-            botImageView.image = botImage;
-        }
+        [self getBotImageView];
         
         [self.tableView reloadData];
+        [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
         needsRefresh = false;
     }
 }
@@ -78,10 +73,17 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    BotPartsCollectionViewController *destination = segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"change part"])
+    {
+        BotPartsCollectionViewController *destination = segue.destinationViewController;
     
-    destination.parts = [self partsForIndex:[sender tag]];
-    destination.botPartKey = [self keyForIndex:[sender tag]];
+        destination.parts = [self partsForIndex:[sender tag]];
+        destination.botPartKey = [self keyForIndex:[sender tag]];
+    }
+    else
+    {
+        
+    }
     needsRefresh = true;
 }
 
@@ -163,7 +165,7 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
     if(section == 0)
         return 1;
     else
-        return [menuElements count];
+        return [menuElements count]+1;
 }
 
 - (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath: (NSIndexPath *) indexPath
@@ -188,16 +190,10 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
                 
                 botImageView = (UIImageView*)[cell viewWithTag:100];
                 
-                UIImage *botImage = [self getBotImageView];
-                if(botImage)
-                {
-                    botImageView.image = botImage;
-                    tutorialText.hidden = YES;
-                }
-                else
-                    tutorialText.hidden = NO;
+                [self getBotImageView];
             }
                 break;
+#warning (MAYBE) TODO Random Bot
             default:
                 cell = [tableView dequeueReusableCellWithIdentifier:@"SelectionCell" forIndexPath:indexPath];
                 cell.textLabel.text = NSLocalizedString(@"Random Bot", nil);
@@ -206,9 +202,19 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
     }
     else
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"SelectionCell" forIndexPath:indexPath];
-        cell.textLabel.text = menuElements[indexPath.row];
-        cell.tag = indexPath.row;
+        if(indexPath.row == [menuElements count])
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"TextSelectionCell" forIndexPath:indexPath];
+            cell.textLabel.text = @"Frase";
+            cell.detailTextLabel.text = [CB_Bot sharedInstance].quote;
+            cell.tag = indexPath.row;
+        }
+        else
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"SelectionCell" forIndexPath:indexPath];
+            cell.textLabel.text = menuElements[indexPath.row];
+            cell.tag = indexPath.row;
+        }
     }
     
     return cell;
@@ -222,30 +228,19 @@ static NSString *API_URL = @"https://services.sapo.pt/Codebits/";
     return elements;
 }
 
-- (UIImage*)getBotImageView
+- (void)getBotImageView
 {
-//    NSArray *partIds = [[NSArray alloc] initWithObjects:@"01",@"00",@"00",@"00",@"00",@"00",@"00",@"00", nil];
-//    
-//    NSString *partsStr = @"";
-//    for(NSString *partId in partIds) {
-//        if(![partsStr isEqualToString:@""])
-//            partsStr = [partsStr stringByAppendingString:@","];
-//        partsStr = [partsStr stringByAppendingString:partId];
-//    }
+    NSString *ballonText = [[CB_Bot sharedInstance].quote stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
+    NSString *botMake;
+    if(ballonText)
+        botMake = [NSString stringWithFormat:@"botmake/%@,%@",[CB_Bot sharedInstance].getPartsStr,ballonText];
+    else
+        botMake = [NSString stringWithFormat:@"botmake/%@",[CB_Bot sharedInstance].getPartsStr];
     
-    NSString *ballonText = @"nada";
+    NSString *imageUrlStr = [API_URL stringByAppendingString:botMake];
     
-    NSString *imageUrlStr = [API_URL stringByAppendingString:[NSString stringWithFormat:@"botmake/%@",[CB_Bot sharedInstance].getPartsStr]];
-    
-    UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL: [NSURL URLWithString:imageUrlStr]]];
-    
-    return image;
-    
-//    UIImageView *returnView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
-//    [returnView sd_setImageWithURL:[NSURL URLWithString:imageUrlStr]
-//                    placeholderImage:nil];
-//    return returnView;//[UIImage imageNamed:@"first"];
+    [botImageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStr] placeholderImage:botImageView.image];
 }
 
 /*

@@ -11,6 +11,7 @@
 @interface CB_Bot : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *parts;
+@property (nonatomic, strong) NSString *quote;
 
 + (CB_Bot *)sharedInstance;
 - (NSString *)getPartsStr;
