@@ -37,7 +37,6 @@ static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
     
     if([[CB_Users sharedInstance].users count] == 0)
     {
-        
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         [CB_API getToken:email password:password
                  success:^(NSString *token) {
@@ -46,6 +45,7 @@ static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
                          [CB_Users sharedInstance].users = [NSMutableArray arrayWithArray:users];
                          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                          [self.tableView reloadData];
+     
                      } failure:^(NSString *error) {
                          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                      }];
@@ -72,7 +72,23 @@ static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    if([[CB_Users sharedInstance].users count]>0)
+        return 1;
+    else
+    {
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        messageLabel.text = NSLocalizedString(@"A obter utilizadores...", nil);
+        messageLabel.textColor = [UIColor blackColor];
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+        messageLabel.font = [UIFont fontWithName:@"System" size:25];
+        [messageLabel sizeToFit];
+        
+        self.tableView.backgroundView = messageLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

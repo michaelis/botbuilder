@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window.tintColor = [UIColor CBlightGreenColor];
+#warning TODO check internet connection
     return YES;
 }
 
