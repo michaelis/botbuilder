@@ -24,6 +24,7 @@
 		7C680A401BAC1FAE0067B500 /* CB_Users.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C680A3F1BAC1FAE0067B500 /* CB_Users.m */; };
 		7C680A431BAC5CDD0067B500 /* QuoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C680A421BAC5CDD0067B500 /* QuoteTableViewController.m */; };
 		7C680A461BAC656E0067B500 /* UIColor+CB_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C680A451BAC656E0067B500 /* UIColor+CB_Color.m */; };
+		7C680A4A1BAC75550067B500 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C680A491BAC75550067B500 /* LoginTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		7C680A421BAC5CDD0067B500 /* QuoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteTableViewController.m; sourceTree = "<group>"; };
 		7C680A441BAC656E0067B500 /* UIColor+CB_Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CB_Color.h"; sourceTree = "<group>"; };
 		7C680A451BAC656E0067B500 /* UIColor+CB_Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CB_Color.m"; sourceTree = "<group>"; };
+		7C680A481BAC75550067B500 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
+		7C680A491BAC75550067B500 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		DBEE6D56A48B95EA06587CDA /* Pods-CodebitsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodebitsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodebitsApp/Pods-CodebitsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E012F2AF7BA838F20E06480A /* libPods-CodebitsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CodebitsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3D62E623DDE0537FD2436B /* Pods-CodebitsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodebitsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodebitsApp/Pods-CodebitsApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				7C40A96F1BA6D6C300BFBB22 /* UsersTableViewController.m */,
 				7C680A3B1BAAD55F0067B500 /* UserDetailTableViewController.h */,
 				7C680A3C1BAAD55F0067B500 /* UserDetailTableViewController.m */,
+				7C680A481BAC75550067B500 /* LoginTableViewController.h */,
+				7C680A491BAC75550067B500 /* LoginTableViewController.m */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C680A381BA874A30067B500 /* CB_Bot.m in Sources */,
+				7C680A4A1BAC75550067B500 /* LoginTableViewController.m in Sources */,
 				7C40A97A1BA81C5D00BFBB22 /* CB_BotPartsCatalog.m in Sources */,
 				7C40A96C1BA6CD6E00BFBB22 /* BotBuilderTableViewController.m in Sources */,
 				7C680A401BAC1FAE0067B500 /* CB_Users.m in Sources */,
