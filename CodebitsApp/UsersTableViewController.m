@@ -38,29 +38,6 @@ static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
         LoginTableViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
         [self presentViewController:loginViewController animated:YES completion:nil];
     }
-    
-//    NSString *email = @"miguel.d.gomes@gmail.com";
-//    NSString *password = @"DM9HvQL4";
-//    
-//    if([[CB_Users sharedInstance].users count] == 0)
-//    {
-//        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-//        [CB_API getToken:email password:password
-//                 success:^(NSString *token) {
-//                     
-//                     [CB_API users:^(NSArray *users) {
-//                         [CB_Users sharedInstance].users = [NSMutableArray arrayWithArray:users];
-//                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//                         [self.tableView reloadData];
-//     
-//                     } failure:^(NSString *error) {
-//                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//                     }];
-//                     
-//                 } failure:^(NSError *error) {
-//                 
-//                 }];
-//    }
 }
 
 - (void)didReceiveMemoryWarning {
