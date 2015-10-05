@@ -64,6 +64,8 @@
     return cell;
 }
 
+#pragma mark - Selectors
+
 - (void)textFieldDidChange:(id)sender {
     
     [CB_Bot sharedInstance].quote = [(UITextField*)sender text];

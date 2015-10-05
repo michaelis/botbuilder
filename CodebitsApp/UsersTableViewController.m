@@ -11,6 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UserDetailTableViewController.h"
 #import "CB_Users.h"
+#include "LoginTableViewController.h"
 
 @interface UsersTableViewController ()
 
@@ -32,33 +33,44 @@ static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
     self.title = NSLocalizedString(@"Utilizadores", nil);
     
 #warning TODO show login popup instead of hardcode user data
-    NSString *email = @"miguel.d.gomes@gmail.com";
-    NSString *password = @"DM9HvQL4";
-    
     if([[CB_Users sharedInstance].users count] == 0)
     {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        [CB_API getToken:email password:password
-                 success:^(NSString *token) {
-                     
-                     [CB_API users:^(NSArray *users) {
-                         [CB_Users sharedInstance].users = [NSMutableArray arrayWithArray:users];
-                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                         [self.tableView reloadData];
-     
-                     } failure:^(NSString *error) {
-                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                     }];
-                     
-                 } failure:^(NSError *error) {
-                 
-                 }];
+        LoginTableViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
+        [self presentViewController:loginViewController animated:YES completion:nil];
     }
+    
+//    NSString *email = @"miguel.d.gomes@gmail.com";
+//    NSString *password = @"DM9HvQL4";
+//    
+//    if([[CB_Users sharedInstance].users count] == 0)
+//    {
+//        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+//        [CB_API getToken:email password:password
+//                 success:^(NSString *token) {
+//                     
+//                     [CB_API users:^(NSArray *users) {
+//                         [CB_Users sharedInstance].users = [NSMutableArray arrayWithArray:users];
+//                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+//                         [self.tableView reloadData];
+//     
+//                     } failure:^(NSString *error) {
+//                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+//                     }];
+//                     
+//                 } failure:^(NSError *error) {
+//                 
+//                 }];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -78,7 +90,7 @@ static NSString *AVATAR_IMAGE_URL = @"http://www.gravatar.com/avatar/";
     {
         UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         
-        messageLabel.text = NSLocalizedString(@"A obter utilizadores...", nil);
+        messageLabel.text = NSLocalizedString(@"É necessário fazer login para ver lista de utilizadores", nil);
         messageLabel.textColor = [UIColor blackColor];
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = NSTextAlignmentCenter;
